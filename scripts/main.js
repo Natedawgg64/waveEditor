@@ -112,6 +112,12 @@ class constWave extends wave{
     getControlHTML(self){
         return '<input type="number">'+self.value;
     }
+    draw(){
+        for(let i=0;i<window.innerWidth;i++){
+            this.samples[i] = this.value;
+        }
+        this.drawSamples(this);
+    }
 }
 class oscWave extends wave{
     constructor(){
