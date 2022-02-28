@@ -1,0 +1,59 @@
+:root{
+    --pointSize:20px;
+    --heldpointSize:30px;
+    user-select: none;
+}
+body{
+    margin:0;
+    padding:0;
+    user-select: none;
+}
+div.point{
+    position: absolute;
+    --frame:1;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    width:var(--pointSize);
+    height:var(--pointSize);
+    background-color: black;
+
+}
+div.point:hover{
+    width:var(--heldpointSize);
+    height:var(--heldpointSize);
+}
+canvas{
+    position:absolute;
+    width:100vw;
+    height:100vh;
+    pointer-events:none;
+}
+div#mathopreations{
+    position: absolute;
+    right:0;
+    height: 100vh;
+    overflow: scroll;
+}
+div.mathDiv{
+    --thisSize:200px;
+    --thisPad:10px;
+    width: calc(var(--thisSize) - (var(--thisPad)*2));
+    height: calc((var(--thisSize) / 2) - (var(--thisPad)*2));
+    padding: var(--thisPad);
+    overflow: hidden;
+    border: outset  #d0d0d0;
+    background-color: white;
+    float: bottom;
+}
+input#sampleRateSelector{
+    width: 60px;
+}
+div.header{
+    position: absolute;
+}
+div.header2{
+    position: absolute;
+}
+div.header3{
+    top:200px;
+}
