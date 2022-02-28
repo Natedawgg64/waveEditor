@@ -9,8 +9,8 @@
         <button onClick='exportWave()'>export</button> sampleRate:<input id="sampleRateSelector" type="number" min="0" value="8060"> name:<input type="text" id="sampleNameSelector">|
         <select name="waveType" id="typeSelector" onChange="updateWaveType(this)">
             <option value="points">points</option>
-            <!--<option value="perlin_noise">perlin noise</option>-->
             <option value="osc">oscilator</option>
+            <option value="constant">constant</option>
         </select>
         <input type='number' id='waveIndexSelector' value="0" min='0' onmousedown="indexTimer = 0" onchange="updatePoints()">
         

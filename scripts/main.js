@@ -104,23 +104,15 @@ class pointWave extends wave{
         this.points = this.points2;
     }  
 }
-/*class perlinWave extends wave{
+class constWave extends wave{
     constructor(){
         super(wave);
-        this.typeIndex = 1;
-        this.controlHTML = 'frequency:<input type="range" min="1" max="256" id="NoiseWave_freq" onChange="updatePerlinWave('+currentPointId+')"><br>'+'amp:<input type="range" min="0" max="100" id="NoiseWave_amp" onChange="updatePerlinWave('+currentPointId+')">';
+        this.value = 1;
     }
-    draw(){
-        this.drawSamples(this);
+    getControlHTML(self){
+        return '<input type="number">'+self.value;
     }
-    generate(){
-        this.samples = GenerateNoise(window.innerHeight*(document.getElementById('NoiseWave_amp').value/100), document.getElementById('NoiseWave_freq').value, 8, 2, window.innerWidth);
-        this.samples = this.samples[0].pos;
-        for(let i=0;i<this.samples.length;i++){
-            this.samples[i]+=startY;
-        }
-    }
-}*/
+}
 class oscWave extends wave{
     constructor(){
         super(wave);
@@ -216,12 +208,11 @@ function updateWaveType(elm){
         case 'points':
             waves[indexSelector.value] = new pointWave();
         break;
-        /*case 'perlin_noise':
-            waves[indexSelector.value] = new perlinWave();
-            waves[indexSelector.value].update();
-        break;*/
         case 'osc':
             waves[indexSelector.value] = new oscWave();
+        break;
+        case 'constant':
+            waves[indexSelector.value] = new constWave();
         break;
     }
     waves[indexSelector.value].mathOperations = mathStorage;
