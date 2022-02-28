@@ -1,0 +1,33 @@
+<head>
+    <link rel='stylesheet' href='style.css'>
+</head>
+<body onmouseup="onMouseUp()">
+    <canvas id='lineCanvas'></canvas>
+    
+    <div id='header'>
+        <div class="header2">
+        <button onClick='exportWave()'>export</button> sampleRate:<input id="sampleRateSelector" type="number" min="0" value="8060"> name:<input type="text" id="sampleNameSelector">|
+        <select name="waveType" id="typeSelector" onChange="updateWaveType(this)">
+            <option value="points">points</option>
+            <!--<option value="perlin_noise">perlin noise</option>-->
+            <option value="osc">oscilator</option>
+        </select>
+        <input type='number' id='waveIndexSelector' value="0" min='0' onmousedown="indexTimer = 0" onchange="updatePoints()">
+        
+            <div>
+                <button onclick="waves[indexSelector.value].addMath()">add math operation</button>
+            </div>
+            <div id="controlDiv" style="position:absolute;"></div>
+        </div>
+        <div id="mathopreations"></div>
+    </div>
+
+    <div id='workspace'>
+    </div>
+    <!--for debugging-->
+    <div id='debugger'></div>
+    <!--scripts-->
+    <script src='scripts/lib.js'></script>
+    <script src='scripts/index.js'></script>
+    <script src='scripts/main.js'></script>
+</body>
