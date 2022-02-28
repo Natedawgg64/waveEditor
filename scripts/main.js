@@ -107,10 +107,13 @@ class pointWave extends wave{
 class constWave extends wave{
     constructor(){
         super(wave);
-        this.value = 1;
+        this.value = 0.5;
+        this.type = 0;
+        this.typeIndex = 3;
+        this.controlHTML = '';
     }
     getControlHTML(self){
-        return '<input type="number">'+self.value;
+        return '<input type="number" value="'+self.value+'">';
     }
     draw(){
         for(let i=0;i<window.innerWidth;i++){
